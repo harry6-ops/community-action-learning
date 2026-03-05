@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Digital Banking Awareness</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+  <!-- Dark overlay — tap to close sidebar on mobile -->
+  <div class="ov" id="ov" onclick="closeSB()"></div>
+
+  <!-- ── SIDEBAR (direct child of body, never inside flex wrapper) ── -->
+  <aside class="sidebar" id="sb">
+
+    <div class="logo">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+        <rect x="2" y="7" width="20" height="14" rx="2"/>
+        <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+        <line x1="12" y1="12" x2="12" y2="16"/>
+        <line x1="10" y1="14" x2="14" y2="14"/>
+      </svg>
+      DBA Project
+    </div>
+
+    <div class="sec">
+      <div class="sec-title">Main</div>
+      <button class="sbtn" id="b-home" onclick="go('home')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>Home
+      </button>
+      <button class="sbtn" id="b-about" onclick="go('about')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="8" x2="12" y2="12"/>
+          <line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>About Project
+      </button>
+    </div>
+
+    <div class="sec">
+      <div class="sec-title">Awareness</div>
+      <button class="sbtn" id="b-awareness" onclick="go('awareness')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/>
+          <path d="M12 16v-4"/><path d="M12 8h.01"/>
+        </svg>Digital Banking Overview
+      </button>
+      <button class="ssub" id="b-internet-banking" onclick="go('internet-banking')">🌐 Internet Banking</button>
+      <button class="ssub" id="b-mobile-banking"   onclick="go('mobile-banking')">📱 Mobile Banking</button>
+      <button class="ssub" id="b-upi"              onclick="go('upi')">⚡ UPI &amp; Transfers</button>
+      <button class="ssub" id="b-bill-payments"    onclick="go('bill-payments')">🧾 Online Bill Payments</button>
+      <button class="ssub" id="b-wallets"          onclick="go('wallets')">👛 Digital Wallets</button>
+      <button class="ssub" id="b-cashless"         onclick="go('cashless')">💳 Cashless Transactions</button>
+    </div>
+
+    <div class="sec">
+      <div class="sec-title">Fraud Awareness</div>
+      <button class="sbtn" id="b-fraud" onclick="go('fraud')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+          <line x1="12" y1="9" x2="12" y2="13"/>
+          <line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>Fraud Types Overview
+      </button>
+      <button class="ssub" id="b-phishing"     onclick="go('phishing')">🎣 Phishing Scams</button>
+      <button class="ssub" id="b-otp-scam"     onclick="go('otp-scam')">🔢 OTP &amp; PIN Scams</button>
+      <button class="ssub" id="b-fake-calls"   onclick="go('fake-calls')">📞 Fake Customer Care</button>
+      <button class="ssub" id="b-atm-skimming" onclick="go('atm-skimming')">🏧 ATM Skimming</button>
+      <button class="ssub" id="b-lottery-scam" onclick="go('lottery-scam')">🎰 Lottery Scams</button>
+    </div>
+
+    <div class="sec">
+      <div class="sec-title">Prevention</div>
+      <button class="sbtn" id="b-prevention" onclick="go('prevention')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>Prevention Overview
+      </button>
+      <button class="ssub" id="b-passwords"     onclick="go('passwords')">🔐 Strong Passwords</button>
+      <button class="ssub" id="b-two-factor"    onclick="go('two-factor')">🛡️ Two-Factor Auth</button>
+      <button class="ssub" id="b-safe-browsing" onclick="go('safe-browsing')">🌐 Safe Browsing</button>
+      <button class="ssub" id="b-wifi-safety"   onclick="go('wifi-safety')">📶 Wi-Fi Safety</button>
+    </div>
+
+    <div class="sec">
+      <div class="sec-title">Emergency</div>
+      <button class="sbtn" id="b-contact" onclick="go('contact')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.57 2h3a2 2 0 0 1 2 1.72 19.79 19.79 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 19.79 19.79 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>If Fraud Happens
+      </button>
+    </div>
+
+  </aside>
+
+  <!-- ── MOBILE TOP BAR ── -->
+  <div class="mh">
+    <button class="hbg" onclick="openSB()" aria-label="Open menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2.2" stroke-linecap="round">
+        <line x1="3" y1="6"  x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+    <span style="font-family:Sora,sans-serif;font-weight:800;color:var(--indigo);font-size:.95rem">Digital Banking Awareness</span>
+    <div style="width:24px"></div>
+  </div>
+
+  <!-- ── MAIN LAYOUT ── -->
+  <div class="wrapper">
+    <div class="main">
+      <div id="pc"></div>
+      <div class="footer">
+        © 2026 Digital Banking Awareness | Community Action Learning Project | All content for educational purposes only
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
